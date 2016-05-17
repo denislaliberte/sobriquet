@@ -1,0 +1,5 @@
+= sobriquet
+
+Generate this with
+    sobriquet rdoc
+After you have described your command line interface
