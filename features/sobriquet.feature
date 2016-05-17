@@ -5,4 +5,8 @@ Feature: Sobriquet alias management
     Then the exit status should be 0
 
   Scenario: Init a new folder
-    When I successfully run `sobriquet init`
+    When I run `sobriquet init`
+    Then the file named "sobriquet.csv" should contain:
+    """
+    bin | arguments | alias | description
+    """

@@ -51,6 +51,8 @@ end
 command :init do |command|
   command.action do
     puts 'Initialise a new repository in ~/sobriquet'
+    template_path = File.expand_path("../../templates/sobriquet.csv", __FILE__)
+    FileUtils.cp template_path, 'sobriquet.csv'
   end
 end
 
