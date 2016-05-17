@@ -1,8 +1,8 @@
-Feature: My bootstrapped app kinda works
-  In order to get going on coding my awesome app
-  I want to have aruba and cucumber setup
-  So I don't have to do it myself
+Feature: Sobriquet alias management
 
   Scenario: App just runs
     When I get help for "sobriquet"
     Then the exit status should be 0
+
+  Scenario: Init a new folder
+    When I successfully run `sobriquet init`
