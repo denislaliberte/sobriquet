@@ -1,6 +1,0 @@
-= sobriquet
-
-Describe your project here
-
-:include:sobriquet.rdoc
-
