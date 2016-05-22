@@ -63,7 +63,7 @@ command :add do |command|
   command.action do |global_options, options, args|
     sobriquet = args.shift
     command = args.shift
-    puts 'Added new sobriquet ' + sobriquet + ' | ' + command
+    puts "Added new sobriquet #{ sobriquet } | #{ command }"
   end
 end
 
