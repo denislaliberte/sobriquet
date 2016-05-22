@@ -1,52 +1,24 @@
 #!/usr/bin/env ruby
 require 'gli'
 require 'csv'
-begin # XXX: Remove this begin/rescue before distributing your app
 require 'sobriquet'
-rescue LoadError
-  STDERR.puts "In development, you need to use `bundle exec bin/sobriquet` to run your app"
-  STDERR.puts "At install-time, RubyGems will make sure lib, etc. are in the load path"
-  STDERR.puts "Feel free to remove this message from bin/sobriquet now"
-  exit 64
-end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'Sobriquet manage your alias'
 
 version Sobriquet::VERSION
 
 subcommand_option_handling :normal
 arguments :strict
 
-desc 'Describe some switch here'
-switch [:s,:switch]
+desc 'Show more retroaction'
+switch [:v,:verbose]
 
 desc 'Path of the csv'
 default_value ENV['HOME'] + '/sobriquet.csv'
 arg_name 'sobriquet.csv'
 flag [:c,:csv]
-
-pre do |global,command,options,args|
-  # Pre logic here
-  # Return true to proceed; false to abort and not call the
-  # chosen command
-  # Use skips_pre before a command to skip this block
-  # on that command only
-  true
-end
-
-post do |global,command,options,args|
-  # Post logic here
-  # Use skips_post before a command to skip this
-  # block on that command only
-end
-
-on_error do |exception|
-  # Error logic here
-  # return false to skip default error handling
-  true
-end
 
 arg :path
 command :init do |command|
