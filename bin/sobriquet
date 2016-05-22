@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'gli'
+require 'csv'
 begin # XXX: Remove this begin/rescue before distributing your app
 require 'sobriquet'
 rescue LoadError
@@ -63,6 +64,9 @@ command :add do |command|
   command.action do |global_options, options, args|
     sobriquet = args.shift
     command = args.shift
+    CSV.open('test/sobriquet.csv', 'ab', {:col_sep => " | "}) do |csv|
+      csv.add_row([command, sobriquet])
+    end
     puts "Added new sobriquet #{ sobriquet } | #{ command }"
   end
 end

@@ -24,3 +24,7 @@ Feature: Sobriquet alias management
     """
     Added new sobriquet gs | git status
     """
+    And the file named "test/sobriquet.csv" should contain:
+    """
+    "git status" | gs
+    """
