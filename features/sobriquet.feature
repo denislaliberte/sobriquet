@@ -38,3 +38,7 @@ Feature: Sobriquet alias management
     """
     generate alias file test/sobriquet.sh
     """
+    And the file named "test/sobriquet.sh" should contain:
+    """
+    alias gs='git status'
+    """

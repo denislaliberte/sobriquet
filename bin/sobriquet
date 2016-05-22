@@ -74,6 +74,9 @@ end
 
 command :generate do |command|
   command.action do |global_options, options, args|
+    File.open('test/sobriquet.sh', 'a') do |file|
+      file.write "alias gs='git status'"
+    end
     puts 'generate alias file test/sobriquet.sh'
   end
 end
