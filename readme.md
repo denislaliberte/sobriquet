@@ -2,6 +2,8 @@
 
 ## Roadmap
 
+- rubocop
+- rubocop ignore gemfile lock
 - cleanup default gli generated code
 - regenerate the sh file
 - refactor init to use csv arguments
