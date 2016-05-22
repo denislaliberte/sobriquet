@@ -3,11 +3,11 @@ require File.join([File.dirname(__FILE__),'lib','sobriquet','version.rb'])
 spec = Gem::Specification.new do |s| 
   s.name = 'sobriquet'
   s.version = Sobriquet::VERSION
-  s.author = 'Your Name Here'
-  s.email = 'your@email.address.com'
-  s.homepage = 'http://your.website.com'
+  s.author = 'Denis Laliberté'
+  s.email = 'denis@laliberte.io'
+  s.homepage = 'http://laliberte.io'
   s.platform = Gem::Platform::RUBY
-  s.summary = 'A description of your project'
+  s.summary = 'Sobriquet manage your alias'
   s.files = `git ls-files`.split("
 ")
   s.require_paths << 'lib'
