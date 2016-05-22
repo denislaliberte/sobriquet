@@ -29,7 +29,7 @@ Feature: Sobriquet alias management
     "git status" | gs
     """
 
-  Scenario: Add an alias
+  Scenario: generate the alias file
     Given an empty directory named "test"
     When I run `sobriquet init test`
     And I run `sobriquet --csv=test/sobriquet.csv add gs 'git status'`
@@ -38,7 +38,22 @@ Feature: Sobriquet alias management
     """
     generate alias file test/sobriquet.sh
     """
-    And the file named "test/sobriquet.sh" should contain:
+    And the file named "test/sobriquet.sh" should contain exactly:
+    """
+    alias gs='git status'
+    """
+    
+  Scenario: generate the alias file multiple time
+    Given an empty directory named "test"
+    When I run `sobriquet init test`
+    And I run `sobriquet --csv=test/sobriquet.csv add gs 'git status'`
+    And I run `sobriquet --csv=test/sobriquet.csv generate`
+    And I run `sobriquet --csv=test/sobriquet.csv generate`
+    Then the output should contain:
+    """
+    generate alias file test/sobriquet.sh
+    """
+    And the file named "test/sobriquet.sh" should contain exactly:
     """
     alias gs='git status'
     """
