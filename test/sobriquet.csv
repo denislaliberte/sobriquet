@@ -1,0 +1,3 @@
+bin | arguments | alias | description
+"git status" | gs
+"git add" | ga
