@@ -57,4 +57,12 @@ command :init do |command|
   end
 end
 
+arg :sobriquet
+command :add do |command|
+  command.action do |global_options, options, args|
+    sobriquet = args.shift
+    puts 'Added new sobriquet ' + sobriquet
+  end
+end
+
 exit run(ARGV)

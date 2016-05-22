@@ -15,3 +15,12 @@ Feature: Sobriquet alias management
     """
     bin | arguments | alias | description
     """
+
+  Scenario: Add an alias
+    Given an empty directory named "test"
+    When I run `sobriquet init test`
+    And I run `sobriquet add gs`
+    Then the output should contain:
+    """
+    Added new sobriquet gs
+    """
