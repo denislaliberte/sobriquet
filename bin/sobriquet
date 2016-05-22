@@ -22,10 +22,10 @@ arguments :strict
 desc 'Describe some switch here'
 switch [:s,:switch]
 
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
+desc 'Path of the csv'
+default_value ENV['HOME'] + '/sobriquet.csv'
+arg_name 'sobriquet.csv'
+flag [:c,:csv]
 
 pre do |global,command,options,args|
   # Pre logic here
@@ -62,9 +62,10 @@ arg :sobriquet
 arg :command
 command :add do |command|
   command.action do |global_options, options, args|
+    csv = global_options['csv']
     sobriquet = args.shift
     command = args.shift
-    CSV.open('test/sobriquet.csv', 'ab', {:col_sep => " | "}) do |csv|
+    CSV.open(csv, 'ab', {:col_sep => " | "}) do |csv|
       csv.add_row([command, sobriquet])
     end
     puts "Added new sobriquet #{ sobriquet } | #{ command }"

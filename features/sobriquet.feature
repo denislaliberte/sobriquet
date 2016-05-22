@@ -19,7 +19,7 @@ Feature: Sobriquet alias management
   Scenario: Add an alias
     Given an empty directory named "test"
     When I run `sobriquet init test`
-    And I run `sobriquet add gs 'git status'`
+    And I run `sobriquet --csv=test/sobriquet.csv add gs 'git status'`
     Then the output should contain:
     """
     Added new sobriquet gs | git status
