@@ -2,14 +2,16 @@
 
 ## Roadmap
 
+- add descriptions for alias
 - see gem packagingi
 - refactor to abstract csv as a datastore 
 - refactor test to use defaults home directory
 - parse the csv in the pre command
 - refactor command to ve verbose
 
+- add binairy as a csv colum
 - home path as default to init
-- add descriptions for alias
+- ask for descrption and tags
 - add variables commands
 - add search command
 - search from url in config file
