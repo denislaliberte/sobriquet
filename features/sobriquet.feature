@@ -46,7 +46,7 @@ Feature: Sobriquet alias management
     """
     alias gs='git status'
     """
-    
+
   Scenario: generate the alias file multiple time
     Given a file named "test/sobriquet.csv" with:
     """

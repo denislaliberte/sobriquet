@@ -14,6 +14,8 @@
 - ask for descrption and tags
 - add variables commands
 - add search command
+- check if alias is overriding an other alias
+- check fo duplicated command
 - search from url in config file
 - rubocop cleanup
 - fix rubocop violation from all gli generated code
