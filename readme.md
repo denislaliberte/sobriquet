@@ -3,7 +3,7 @@
 ## Roadmap
 
 - add descriptions for alias
-- see gem packagingi
+- see gem packaging
 - refactor to abstract csv as a datastore 
 - refactor test to use defaults home directory
 - parse the csv in the pre command
