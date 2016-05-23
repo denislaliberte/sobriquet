@@ -21,14 +21,14 @@ Feature: Sobriquet alias management
     """
     command | alias | description
     """
-    When I run `sobriquet --csv=test/sobriquet.csv add gs 'git status'`
+    When I run `sobriquet --csv=test/sobriquet.csv add -d 'get the status of the git directory' gs 'git status' `
     Then the output should contain:
     """
     Added new sobriquet gs | git status
     """
     And the file named "test/sobriquet.csv" should contain:
     """
-    "git status" | gs
+    "git status" | gs | "get the status of the git directory"
     """
 
   Scenario: generate the alias file

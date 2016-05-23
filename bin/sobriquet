@@ -32,12 +32,17 @@ end
 arg :sobriquet
 arg :command
 command :add do |command|
-  command.action do |global_options, _options, args|
+  command.desc 'Description of the alias'
+  command.default_value 'no descriptions'
+  command.arg_name 'a bad description is better than no description'
+  command.flag [:d, :description]
+  command.action do |global_options, options, args|
     csv = global_options['csv']
+    description = options['description']
     sobriquet = args.shift
     command = args.shift
     CSV.open(csv, 'ab', col_sep: ' | ') do |c|
-      c.add_row([command, sobriquet])
+      c.add_row([command, sobriquet, description])
     end
     puts "Added new sobriquet #{sobriquet} | #{command}"
   end
