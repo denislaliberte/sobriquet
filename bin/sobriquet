@@ -20,6 +20,11 @@ default_value ENV['HOME'] + '/sobriquet.csv'
 arg_name 'sobriquet.csv'
 flag [:c, :csv]
 
+desc 'Path of the shell file'
+default_value ENV['HOME'] + '/sobriquet.sh'
+arg_name 'sobriquet.sh'
+flag [:s, :shell]
+
 command :init do |command|
   command.action do |global_options, _options, _args|
     csv = global_options['csv']
@@ -51,12 +56,13 @@ end
 command :generate do |command|
   command.action do |global_options, _options, _args|
     csv = global_options['csv']
-    File.open('test/sobriquet.sh', 'w') do |file|
+    shell_path = global_options['shell']
+    File.open(shell_path, 'w') do |file|
       CSV.open(csv, 'rb', col_sep: ' | ', headers: true).map do |line|
         file.write "alias #{line[1]}='#{line[0]}'\n"
       end
     end
-    puts 'generate alias file test/sobriquet.sh'
+    puts 'generate alias file ' + shell_path + ' from csv file' + csv
   end
 end
 

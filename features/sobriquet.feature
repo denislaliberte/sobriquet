@@ -32,30 +32,32 @@ Feature: Sobriquet alias management
     """
 
   Scenario: generate the alias file
-    Given a file named "test/sobriquet.csv" with:
+    Given a mocked home directory
+    And a file named "sobriquet.csv" with:
     """
     command | alias | description
     "git status" | gs
     """
-    When I run `sobriquet --csv=test/sobriquet.csv generate`
+    When I run `sobriquet generate`
     Then the output should contain:
     """
-    generate alias file test/sobriquet.sh
+    generate alias file
     """
-    And the file named "test/sobriquet.sh" should contain exactly:
+    And the file named "sobriquet.sh" should contain exactly:
     """
     alias gs='git status'
     """
 
   Scenario: generate the alias file multiple time
-    Given a file named "test/sobriquet.csv" with:
+    Given a mocked home directory
+    And a file named "sobriquet.csv" with:
     """
     command | alias | description
     "git status" | gs
     """
-    And I run `sobriquet --csv=test/sobriquet.csv generate`
-    And I run `sobriquet --csv=test/sobriquet.csv generate`
-    Then the file named "test/sobriquet.sh" should contain exactly:
+    And I run `sobriquet  generate`
+    And I run `sobriquet generate`
+    Then the file named "sobriquet.sh" should contain exactly:
     """
     alias gs='git status'
     """
