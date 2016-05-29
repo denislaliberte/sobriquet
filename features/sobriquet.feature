@@ -28,34 +28,22 @@ Feature: Sobriquet alias management
     "git status" | gs | "get the status of the git directory"
     """
 
-  Scenario: generate the alias file
+  Scenario: generate the alias file every time i run the generate command
     Given a mocked home directory
     And a file named "sobriquet.csv" with:
     """
     command | alias | description
-    "git status" | gs
+    "git status" | gs | "get the status of the git directory"
     """
     When I run `sobriquet generate`
+    And I run `sobriquet generate`
     Then the output should contain:
     """
     generate alias file
     """
     And the file named "sobriquet.sh" should contain exactly:
     """
-    alias gs='git status'
-    """
-
-  Scenario: generate the alias file multiple time
-    Given a mocked home directory
-    And a file named "sobriquet.csv" with:
-    """
-    command | alias | description
-    "git status" | gs
-    """
-    And I run `sobriquet  generate`
-    And I run `sobriquet generate`
-    Then the file named "sobriquet.sh" should contain exactly:
-    """
+    # description : get the status of the git directory
     alias gs='git status'
     """
 

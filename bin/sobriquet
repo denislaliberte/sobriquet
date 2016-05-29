@@ -54,6 +54,7 @@ command :generate do |command|
     shell_path = global_options['workspace'] + '/sobriquet.sh'
     File.open(shell_path, 'w') do |file|
       CSV.open(csv, 'rb', col_sep: ' | ', headers: true).map do |line|
+        file.write "# description : #{line[2]}\n"
         file.write "alias #{line[1]}='#{line[0]}'\n"
       end
     end
