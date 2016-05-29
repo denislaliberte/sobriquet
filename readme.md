@@ -2,12 +2,12 @@
 
 ## Roadmap
 
-- see gem packaging
-- refactor to abstract csv as a datastore 
 - refactor test to use defaults home directory
+- refactor to abstract csv as a datastore 
 - parse the csv in the pre command
 - refactor command to ve verbose
 
+- generate reamde-rdoc from the reamde markdown
 - add binairy as a csv colum
 - home path as default to init
 - ask for descrption and tags
