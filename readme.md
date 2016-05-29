@@ -5,8 +5,8 @@
 - home path as default to init
 - refactor command to ve verbose
 - rubocop cleanup
-- fix roadmap
 - generate reamde-rdoc from the reamde markdown
+- fix readme
 
 - publish gem version1.0
 - refactor to abstract csv as a datastore 
@@ -33,9 +33,9 @@
 
 ### [unreleased]
 #### added
-- initialise csv files
-- add an alias
-- generate a shell file with alias from the csv file
+- Initialise csv file
+- Add an alias to the csv file
+- Generate a shell file with alias from the csv file
 #### planned
 - add a variable
 
