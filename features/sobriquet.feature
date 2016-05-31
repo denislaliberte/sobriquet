@@ -4,7 +4,7 @@ Feature: Sobriquet alias management
     When I get help for "sobriquet"
     Then the exit status should be 0
 
-  Scenario: Init a new folder with a csv option
+  Scenario: Init a new folder with a csv file for the aliases
     Given a mocked home directory
     When I run `sobriquet init `
     Then the file named "sobriquet.csv" should contain:
@@ -27,6 +27,15 @@ Feature: Sobriquet alias management
     """
     "git status" | gs | "get the status of the git directory"
     """
+
+  Scenario: Add an alias with verbose flag
+    Given a mocked home directory
+    And a file named "sobriquet.csv" with:
+    """
+    command | alias | description
+    """
+    When I run `sobriquet --verbose add gs 'git status' `
+    Then the output should match /Sobriquet added to the file .*sobriquet.csv/
 
   Scenario: generate the alias file every time i run the generate command
     Given a mocked home directory
