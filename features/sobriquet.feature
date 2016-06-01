@@ -11,6 +11,10 @@ Feature: Sobriquet alias management
     """
     command | alias | description
     """
+    And the output should contain:
+    """
+    Initialise a new sobriquet workspace in
+    """
 
   Scenario: Add an alias with descriptions
     Given a mocked home directory

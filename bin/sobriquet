@@ -23,9 +23,9 @@ flag [:w, :workspace]
 command :init do |command|
   command.action do |global_options, _options, _args|
     csv = global_options['workspace'] + '/sobriquet.csv'
-    puts 'Initialise a new sobriquet workspace in ' + global_options['workspace']
     template_path = File.expand_path('../../templates/sobriquet.csv', __FILE__)
     FileUtils.cp template_path, csv
+    puts 'Initialise a new sobriquet workspace in ' + global_options['workspace']
   end
 end
 
