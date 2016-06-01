@@ -2,7 +2,6 @@
 
 ## Roadmap
 
-- refactor scenario to use given a mocked home in the backgroud
 - rubocop cleanup
 - generate reamde-rdoc from the reamde markdown
 - refactor features to separate features init, add, generate

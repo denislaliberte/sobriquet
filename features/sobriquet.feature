@@ -1,11 +1,13 @@
 Feature: Sobriquet alias management
 
+  Background:
+    Given a mocked home directory
+
   Scenario: App just runs
     When I get help for "sobriquet"
     Then the exit status should be 0
 
   Scenario: Init a new folder with a csv file for the aliases
-    Given a mocked home directory
     When I run `sobriquet init `
     Then the file named "sobriquet.csv" should contain:
     """
@@ -17,8 +19,7 @@ Feature: Sobriquet alias management
     """
 
   Scenario: Add an alias with descriptions
-    Given a mocked home directory
-    And a file named "sobriquet.csv" with:
+    Given a file named "sobriquet.csv" with:
     """
     command | alias | description
     """
@@ -33,8 +34,7 @@ Feature: Sobriquet alias management
     """
 
   Scenario: Add an alias with verbose flag
-    Given a mocked home directory
-    And a file named "sobriquet.csv" with:
+    Given a file named "sobriquet.csv" with:
     """
     command | alias | description
     """
@@ -42,8 +42,7 @@ Feature: Sobriquet alias management
     Then the output should match /Sobriquet added to the file .*sobriquet.csv/
 
   Scenario: generate the alias file every time i run the generate command
-    Given a mocked home directory
-    And a file named "sobriquet.csv" with:
+    Given a file named "sobriquet.csv" with:
     """
     command | alias | description
     "git status" | gs | "get the status of the git directory"
@@ -61,8 +60,7 @@ Feature: Sobriquet alias management
     """
 
   Scenario: Generate the alias flag with verbose flag
-    Given a mocked home directory
-    And a file named "sobriquet.csv" with:
+    Given a file named "sobriquet.csv" with:
     """
     command | alias | description
     "git status" | gs | "get the status of the git directory"
