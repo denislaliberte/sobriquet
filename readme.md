@@ -2,10 +2,9 @@
 
 ## Roadmap
 
-- be verbose in generate command
+- refactor scenario to use given a mocked home in the backgroud
 - rubocop cleanup
 - generate reamde-rdoc from the reamde markdown
-- refactor scenario to use given a mocked home in the backgroud
 - refactor features to separate features init, add, generate
 - fix readme
 - add a variable
