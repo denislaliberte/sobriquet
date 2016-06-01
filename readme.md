@@ -2,7 +2,6 @@
 
 ## Roadmap
 
-- rubocop cleanup
 - generate reamde-rdoc from the reamde markdown
 - fix readme
 - add a variable
@@ -24,6 +23,7 @@
 - search and import alias from csv file on the network (github)
 
 ## later
+- add rake task for rubocop
 - refactor features to separate features init, add, generate
 - local sobriquet to a folder for alias an variable specific to a project
 - generate md and html to document alias
