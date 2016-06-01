@@ -8,7 +8,7 @@ Feature: Sobriquet alias management
     Then the exit status should be 0
 
   Scenario: Init a new folder with a csv file for the aliases
-    When I run `sobriquet init `
+    When I run `sobriquet init`
     Then the file named "sobriquet.csv" should contain:
     """
     command | alias | description
