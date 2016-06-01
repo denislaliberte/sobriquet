@@ -4,7 +4,6 @@
 
 - rubocop cleanup
 - generate reamde-rdoc from the reamde markdown
-- refactor features to separate features init, add, generate
 - fix readme
 - add a variable
 - release 1.0
@@ -25,6 +24,7 @@
 - search and import alias from csv file on the network (github)
 
 ## later
+- refactor features to separate features init, add, generate
 - local sobriquet to a folder for alias an variable specific to a project
 - generate md and html to document alias
 
