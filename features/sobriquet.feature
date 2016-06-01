@@ -56,6 +56,16 @@ Feature: Sobriquet alias management
     alias gs='git status'
     """
 
+  Scenario: Generate the alias flag with verbose flag
+    Given a mocked home directory
+    And a file named "sobriquet.csv" with:
+    """
+    command | alias | description
+    "git status" | gs | "get the status of the git directory"
+    """
+    When I run `sobriquet --verbose generate`
+    Then the output should match /alias generated from the csv file .*sobriquet.csv/
+
   Scenario: Init a new directory with a workspace option
     Given an empty directory named "test"
     When I run `sobriquet --workspace=test init `

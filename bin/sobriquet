@@ -54,6 +54,7 @@ command :generate do |command|
   command.action do |global_options, _options, _args|
     csv = global_options['workspace'] + '/sobriquet.csv'
     shell_path = global_options['workspace'] + '/sobriquet.sh'
+    verbose = global_options['verbose']
     File.open(shell_path, 'w') do |file|
       CSV.open(csv, 'rb', col_sep: ' | ', headers: true).map do |line|
         file.write "# description : #{line[2]}\n"
@@ -61,6 +62,7 @@ command :generate do |command|
       end
     end
     puts 'generate alias file ' + shell_path + ' from csv file' + csv
+    puts "alias generated from the csv file #{csv}" if verbose
   end
 end
 
