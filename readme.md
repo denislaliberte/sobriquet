@@ -2,6 +2,8 @@
 
 ## Roadmap
 
+- generate variable in shell file
+- move add sobriquet to lib
 - generate reamde-rdoc from the reamde markdown
 - fix readme
 - add a variable
