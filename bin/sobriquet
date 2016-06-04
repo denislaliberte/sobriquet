@@ -35,12 +35,12 @@ def add_a_sobriquet(name)
     csv = global_options['workspace'] + '/sobriquet.csv'
     description = options['description']
     sobriquet = args.shift
-    command = args.shift
+    value = args.shift
     verbose = global_options['verbose']
     CSV.open(csv, 'ab', col_sep: ' | ') do |c|
-      c.add_row([command, sobriquet, description])
+      c.add_row([value, sobriquet, description])
     end
-    puts "Added new #{name} #{sobriquet} | #{command}"
+    puts "Added new #{name} #{sobriquet} | #{value}"
     puts "Sobriquet added to the file #{csv}" if verbose
   end
 end
