@@ -1,5 +1,11 @@
 # Sobriquet
 
+Sobriquet manage your shell alias and variable.
+
+## Usage
+
+## Install
+
 ## Roadmap
 
 - generate variable in shell file
@@ -8,6 +14,15 @@
 - fix readme
 - add a variable
 - release 1.0
+
+### [v1.0]-unreleased
+#### added
+- Initialise csv file
+- Add an alias to the csv file
+- Generate a shell file with alias from the csv file
+#### planned
+- add a variable
+
 
 ### version 1.1-planned
 #### planned
@@ -32,12 +47,4 @@
 
 
 ## Change log
-
-### [v1.0]-unreleased
-#### added
-- Initialise csv file
-- Add an alias to the csv file
-- Generate a shell file with alias from the csv file
-#### planned
-- add a variable
 
