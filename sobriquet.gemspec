@@ -1,5 +1,4 @@
-# Ensure we require the local version and not one we might have installed already
-require File.join([File.dirname(__FILE__),'lib','sobriquet','version.rb'])
+require File.join([File.dirname(__FILE__), 'lib', 'sobriquet', 'version.rb'])
 spec = Gem::Specification.new do |s| 
   s.name = 'sobriquet'
   s.version = Sobriquet::VERSION
@@ -20,5 +19,7 @@ spec = Gem::Specification.new do |s|
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')
   s.add_development_dependency('rubocop')
-  s.add_runtime_dependency('gli','2.14.0')
+  s.add_development_dependency('rspec')
+  s.add_development_dependency('rubocop-rspec')
+  s.add_runtime_dependency('gli', '2.14.0')
 end
