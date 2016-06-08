@@ -8,9 +8,9 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
+- get add description
 - refactor generate to use persistance
 - move add sobriquet to lib
-- get add description
 - rename Command::command to generate or other better name
 - find a better name for persistance
 - test bad csv file in persistance::get

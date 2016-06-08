@@ -8,7 +8,7 @@ module Sobriquet
     end
 
     def command
-      "alias #{@alias}=\"#{@command}\""
+      "# #{@description}\nalias #{@alias}=\"#{@command}\"\n"
     end
   end
 end
