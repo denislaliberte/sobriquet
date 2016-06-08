@@ -52,7 +52,7 @@ command :variable do |command|
   command.default_value 'no description'
   command.arg_name 'a bad description is better than no description'
   command.flag [:d, :description]
-  command.action &add_a_sobriquet(:variable)
+  command.action(&add_a_sobriquet(:variable))
 end
 
 arg :sobriquet
@@ -62,7 +62,7 @@ command :add do |command|
   command.default_value 'no descriptions'
   command.arg_name 'a bad description is better than no description'
   command.flag [:d, :description]
-  command.action &add_a_sobriquet(:sobriquet)
+  command.action(&add_a_sobriquet(:sobriquet))
 end
 
 command :generate do |command|
