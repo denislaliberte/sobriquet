@@ -1,5 +1,5 @@
 require File.join([File.dirname(__FILE__), 'lib', 'sobriquet', 'version.rb'])
-spec = Gem::Specification.new do |s| 
+spec = Gem::Specification.new do |s|
   s.name = 'sobriquet'
   s.version = Sobriquet::VERSION
   s.author = 'Denis Laliberté'
@@ -11,7 +11,7 @@ spec = Gem::Specification.new do |s|
 ")
   s.require_paths << 'lib'
   s.has_rdoc = true
-  s.extra_rdoc_files = ['README.rdoc','sobriquet.rdoc']
+  s.extra_rdoc_files = ['README.rdoc', 'sobriquet.rdoc']
   s.rdoc_options << '--title' << 'sobriquet' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
   s.executables << 'sobriquet'
