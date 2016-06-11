@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 require 'gli'
-require 'csv'
 require 'sobriquet'
 
 include GLI::App
+include Sobriquet
 
 program_desc 'Sobriquet manage your alias'
 
@@ -32,11 +32,13 @@ end
 
 def add_a_sobriquet(name)
   lambda do |global_options, options, args|
-    csv = global_options['workspace'] + '/sobriquet.csv'
     description = options['description']
     sobriquet = args.shift
     value = args.shift
     verbose = global_options['verbose']
+    commands = CommandCollection.new(global_options['workspace'])
+#   commands.addCommand([value, sobriquet, description])
+    csv = global_options['workspace'] + '/sobriquet.csv'
     CSV.open(csv, 'ab', col_sep: ' | ') do |c|
       c.add_row([value, sobriquet, description])
     end

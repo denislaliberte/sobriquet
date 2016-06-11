@@ -7,6 +7,7 @@ Feature: Add alias to sobriquet data file
     command | alias | description
     """
 
+  @wip
   Scenario: Add an alias with descriptions
     When I run `sobriquet add -d 'get the status of the git directory' gs 'git status' `
     Then the output should contain:

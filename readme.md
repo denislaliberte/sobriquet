@@ -8,8 +8,7 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
-- get add description
-- refactor generate to use persistance
+- refactor generate to use persistance class
 - move add sobriquet to lib
 - rename Command::command to generate or other better name
 - find a better name for persistance
