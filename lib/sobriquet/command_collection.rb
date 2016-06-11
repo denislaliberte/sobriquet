@@ -4,5 +4,7 @@ module Sobriquet
     def initialize(workspace)
       @workspace = workspace
     end
+    def add(data)
+    end
   end
 end

@@ -37,7 +37,7 @@ def add_a_sobriquet(name)
     value = args.shift
     verbose = global_options['verbose']
     commands = CommandCollection.new(global_options['workspace'])
-#   commands.addCommand([value, sobriquet, description])
+    commands.add([value, sobriquet, description])
     csv = global_options['workspace'] + '/sobriquet.csv'
     CSV.open(csv, 'ab', col_sep: ' | ') do |c|
       c.add_row([value, sobriquet, description])
