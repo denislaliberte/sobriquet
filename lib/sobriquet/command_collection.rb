@@ -3,7 +3,9 @@ module Sobriquet
   class CommandCollection
     def initialize(workspace)
       @workspace = workspace
+      @persistance = Persistance.new(workspace)
     end
+
     def add(data)
     end
   end

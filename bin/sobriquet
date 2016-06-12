@@ -5,6 +5,8 @@ require 'sobriquet'
 include GLI::App
 include Sobriquet
 
+REFACTOR = false
+
 program_desc 'Sobriquet manage your alias'
 
 version Sobriquet::VERSION
@@ -36,11 +38,14 @@ def add_a_sobriquet(name)
     sobriquet = args.shift
     value = args.shift
     verbose = global_options['verbose']
-    commands = CommandCollection.new(global_options['workspace'])
-    commands.add([value, sobriquet, description])
-    csv = global_options['workspace'] + '/sobriquet.csv'
-    CSV.open(csv, 'ab', col_sep: ' | ') do |c|
-      c.add_row([value, sobriquet, description])
+    if REFACTOR
+      commands = CommandCollection.new(global_options['workspace'])
+      commands.add([value, sobriquet, description])
+    else
+      csv = global_options['workspace'] + '/sobriquet.csv'
+      CSV.open(csv, 'ab', col_sep: ' | ') do |c|
+        c.add_row([value, sobriquet, description])
+      end
     end
     puts "Added new #{name} #{sobriquet} | #{value}"
     puts "Sobriquet added to the file #{csv}" if verbose

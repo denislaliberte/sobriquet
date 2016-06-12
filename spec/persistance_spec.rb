@@ -14,7 +14,7 @@ alias gs="git status"
 
   it 'retrive the command data from csv' do
     expect(File).to receive(:open).with(any_args) { StringIO.new(data) }
-    persistance = described_class.new
+    persistance = described_class.new('workspace.csv')
     expect(persistance.get.first.command).to eq(result)
   end
 end
