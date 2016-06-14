@@ -12,6 +12,7 @@ module Sobriquet
 
     def add(data)
       @commands.push(data)
+      @persistance.save(@commands)
     end
   end
 end
