@@ -1,9 +1,8 @@
 module Sobriquet
   # Contain a collection of commands
   class CommandCollection
-    def initialize(workspace)
-      @workspace = workspace
-      @persistance = Persistance.new(workspace)
+    def initialize(persistance)
+      @persistance = persistance
       @commands = []
     end
 

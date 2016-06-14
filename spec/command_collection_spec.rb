@@ -7,8 +7,8 @@ RSpec.describe CommandCollection do
   end
 
   it 'add a new commands' do
-    expect(Persistance).to receive(:new).with('sobriquet.csv')
-    commands = described_class.new('sobriquet.csv')
+    persistance = double('Persistance')
+    commands = described_class.new(persistance)
     commands.add(command_data)
     expect(commands.get).to include(command_data)
   end
