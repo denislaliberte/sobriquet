@@ -3,9 +3,8 @@ require 'CSV'
 module Sobriquet
   # Persistance handle interaction with the file system
   class Persistance
-    def initialize(workspace, title)
+    def initialize(workspace)
       @workspace = workspace
-      @title = title
     end
 
     def get
@@ -13,9 +12,9 @@ module Sobriquet
       data.map { |a| Command.new(a) }
     end
 
-    def save(commands)
+    def save(commands, title)
       csv_string = CSV.generate(col_sep: ' | ') do |csv|
-        csv.add_row(@title)
+        csv.add_row(title)
         commands.map do |line|
           csv.add_row(line)
         end

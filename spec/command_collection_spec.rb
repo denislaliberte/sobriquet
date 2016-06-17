@@ -16,7 +16,7 @@ RSpec.describe CommandCollection do
 
   it 'add and persist a new command' do
     persistance = instance_double('Persistance', 'workspace/path')
-    expect(persistance).to receive(:save).with([command_data])
+    expect(persistance).to receive(:save).with([command_data], any_args)
     commands = described_class.new(persistance)
     commands.add(command_data)
   end

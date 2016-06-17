@@ -4,6 +4,7 @@ module Sobriquet
     def initialize(persistance)
       @persistance = persistance
       @commands = []
+      @title = ['command', 'alias', 'description']
     end
 
     def get
@@ -12,7 +13,7 @@ module Sobriquet
 
     def add(data)
       @commands.push(data)
-      @persistance.save(@commands)
+      @persistance.save(@commands, @title)
     end
   end
 end

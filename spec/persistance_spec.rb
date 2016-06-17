@@ -23,15 +23,15 @@ alias gs="git status"
 
   it 'retrive the command csv from csv' do
     expect(File).to receive(:open).with(any_args) { StringIO.new(csv) }
-    persistance = described_class.new('workspace.csv', title)
+    persistance = described_class.new('workspace.csv')
     expect(persistance.get.first.command).to eq(compiled_command)
   end
 
   it 'save the commands data to the csv' do
     file = spy('file')
     expect(File).to receive(:open).with(any_args).and_yield(file)
-    persistance = described_class.new('workspace.csv', title)
-    persistance.save(data)
+    persistance = described_class.new('workspace.csv')
+    persistance.save(data, title)
     expect(file).to have_received(:write).with(csv)
   end
 end
