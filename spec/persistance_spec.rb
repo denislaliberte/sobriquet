@@ -28,10 +28,10 @@ alias gs="git status"
   end
 
   it 'save the commands data to the csv' do
-    file = spy('file')
+    file = instance_double('file')
     expect(File).to receive(:open).with(any_args).and_yield(file)
+    expect(file).to receive(:write).with(csv)
     persistance = described_class.new('workspace.csv')
     persistance.save(data, title)
-    expect(file).to have_received(:write).with(csv)
   end
 end
