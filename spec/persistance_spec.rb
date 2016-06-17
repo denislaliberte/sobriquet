@@ -3,7 +3,7 @@ include Sobriquet
 
 RSpec.describe Persistance do
   let(:title) do
-    ['command','alias','description']
+    %w(command alias description)
   end
   let(:csv) do
     'command | alias | description

@@ -20,5 +20,4 @@ RSpec.describe CommandCollection do
     commands = described_class.new(persistance)
     commands.add(command_data)
   end
-
 end

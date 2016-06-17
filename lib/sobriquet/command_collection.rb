@@ -4,7 +4,7 @@ module Sobriquet
     def initialize(persistance)
       @persistance = persistance
       @commands = []
-      @title = ['command', 'alias', 'description']
+      @title = %w(command alias description)
     end
 
     def get
