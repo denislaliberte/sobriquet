@@ -33,8 +33,7 @@ end
 def add_a_sobriquet(name)
   lambda do |global_options, options, args|
     description = options['description']
-    sobriquet = args.shift
-    value = args.shift
+    sobriquet, value, = args
     verbose = global_options['verbose']
     csv = global_options['workspace'] + '/sobriquet.csv'
     persistance = Persistance.new(csv)

@@ -3,5 +3,7 @@ AllCops:
   Exclude:
     - 'pkg/**/*'
     - 'vendor/**/*'
+    - 'features/**/*'
     - 'sobriquet.gemspec'
     - 'Rakefile'
+
