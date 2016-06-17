@@ -34,13 +34,12 @@ def add_a_sobriquet(name)
   lambda do |global_options, options, args|
     description = options['description']
     sobriquet, value, = args
-    verbose = global_options['verbose']
     csv = global_options['workspace'] + '/sobriquet.csv'
     persistance = Persistance.new(csv)
     commands = CommandCollection.new(persistance)
     commands.add([value, sobriquet, description])
     puts "Added new #{name} #{sobriquet} | #{value}"
-    puts "Sobriquet added to the file #{csv}" if verbose
+    puts "Sobriquet added to the file #{csv}" if global_options['verbose']
   end
 end
 
