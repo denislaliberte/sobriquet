@@ -15,5 +15,8 @@ module Sobriquet
       @commands.push(data)
       @persistance.save(@commands, @title)
     end
+    def compile
+      'alias gs="git status"'
+    end
   end
 end
