@@ -1,3 +1,4 @@
+require 'mustache'
 module Sobriquet
   # Contain a collection of commands
   class CommandCollection
@@ -16,7 +17,11 @@ module Sobriquet
       @persistance.save(@commands, @title)
     end
     def compile
-      'alias gs="git status"'
+      Mustache.render(
+        'alias {{sobriquet}}="{{value}}"',
+        :sobriquet => "gs",
+        :value => 'git status'
+      )
     end
   end
 end
