@@ -21,13 +21,30 @@ alias gs="git status"
     ]
   end
 
-  it 'retrive the command csv from csv' do
-    expect(File).to receive(:open).with(any_args) { StringIO.new(csv) }
-    persistance = described_class.new('workspace.csv')
-    first_command = persistance.get.first
-    expect(first_command.value).to eq('git status')
-    expect(first_command.alias).to eq('gs')
-    expect(first_command.description).to eq('get the status of the git directory')
+  context 'Reading csv with data' do
+    before do
+      expect(File).to receive(:open).with(any_args) { StringIO.new(csv) }
+    end
+
+    it 'retrive the command csv from csv and contain value' do
+      persistance = described_class.new('workspace.csv')
+      first_command = persistance.get.first
+      expect(first_command.value).to eq('git status')
+    end
+
+    it 'retrive the command csv from csv and contain alias' do
+      persistance = described_class.new('workspace.csv')
+      first_command = persistance.get.first
+      expect(first_command.alias).to eq('gs')
+    end
+
+    it 'retrive the command csv from csv and contain description' do
+      persistance = described_class.new('workspace.csv')
+      first_command = persistance.get.first
+      expect(first_command.description).to eq(
+        'get the status of the git directory'
+      )
+    end
   end
 
   it 'save the commands data to the csv' do

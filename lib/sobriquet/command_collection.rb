@@ -17,13 +17,14 @@ module Sobriquet
       @commands.push(data)
       @persistance.save(@commands, @title)
     end
+
     def compile
       Mustache.render(
         '{{#commands}}
 # description : {{description}}
 alias {{alias}}="{{value}}"
         {{/commands}}',
-        :commands => @persistance.get
+        commands: @persistance.get
       )
     end
   end
