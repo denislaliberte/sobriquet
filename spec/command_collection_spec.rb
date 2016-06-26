@@ -23,6 +23,7 @@ RSpec.describe CommandCollection do
 
   it 'compile command to script file' do
     persistance = instance_double('Persistance', 'workspace/path')
+    allow(persistance).to receive(:get).and_return(Command.new(command_data))
     commands = described_class.new(persistance)
     expect(commands.compile).to include('alias gs="git status"')
   end

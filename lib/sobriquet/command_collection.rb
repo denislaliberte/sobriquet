@@ -1,4 +1,5 @@
 require 'mustache'
+require 'yaml'
 module Sobriquet
   # Contain a collection of commands
   class CommandCollection
@@ -18,9 +19,10 @@ module Sobriquet
     end
     def compile
       Mustache.render(
-        'alias {{sobriquet}}="{{value}}"',
-        :sobriquet => "gs",
-        :value => 'git status'
+        '{{#commands}}
+          alias {{alias}}="{{value}}"
+        {{/commands}}',
+        :commands => @persistance.get
       )
     end
   end
