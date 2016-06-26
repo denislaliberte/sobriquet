@@ -5,7 +5,7 @@ require 'sobriquet'
 include GLI::App
 include Sobriquet
 
-REFACTOR = true
+REFACTOR = false
 
 program_desc 'Sobriquet manage your alias'
 
