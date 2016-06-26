@@ -5,8 +5,6 @@ require 'sobriquet'
 include GLI::App
 include Sobriquet
 
-REFACTOR = true
-
 program_desc 'Sobriquet manage your alias'
 
 version Sobriquet::VERSION
@@ -70,19 +68,10 @@ command :generate do |command|
     csv = global_options['workspace'] + '/sobriquet.csv'
     shell_path = global_options['workspace'] + '/sobriquet.sh'
     verbose = global_options['verbose']
-    if REFACTOR
-      persistance = Persistance.new(csv)
-      script = CommandCollection.new(persistance).compile
-      File.open(shell_path, 'w') do |file|
-        file.write script
-      end
-    else
-      File.open(shell_path, 'w') do |file|
-        CSV.open(csv, 'rb', col_sep: ' | ', headers: true).map do |line|
-          file.write "# description : #{line[2]}\n"
-          file.write "alias #{line[1]}='#{line[0]}'\n"
-        end
-      end
+    persistance = Persistance.new(csv)
+    script = CommandCollection.new(persistance).compile
+    File.open(shell_path, 'w') do |file|
+      file.write script
     end
     puts 'generate alias file ' + shell_path + ' from csv file' + csv
     puts "alias generated from the csv file #{csv}" if verbose
