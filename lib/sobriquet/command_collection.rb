@@ -20,8 +20,8 @@ module Sobriquet
     def compile
       Mustache.render(
         '{{#commands}}
-          # {{description}}
-          alias {{alias}}="{{value}}"
+# description : {{description}}
+alias {{alias}}="{{value}}"
         {{/commands}}',
         :commands => @persistance.get
       )

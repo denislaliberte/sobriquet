@@ -15,10 +15,13 @@ Feature: Generate a shell file to declare alias and import variables
     """
     generate alias file
     """
-    And the file named "sobriquet.sh" should contain exactly:
+    And the file named "sobriquet.sh" should contain:
     """
     # description : get the status of the git directory
-    alias gs='git status'
+    """
+    And the file named "sobriquet.sh" should contain:
+    """
+    alias gs="git status"
     """
 
   Scenario: Generate the alias flag with verbose flag

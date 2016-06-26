@@ -5,7 +5,7 @@ require 'sobriquet'
 include GLI::App
 include Sobriquet
 
-REFACTOR = false
+REFACTOR = true
 
 program_desc 'Sobriquet manage your alias'
 
@@ -73,6 +73,9 @@ command :generate do |command|
     if REFACTOR
       persistance = Persistance.new(csv)
       script = CommandCollection.new(persistance).compile
+      File.open(shell_path, 'w') do |file|
+        file.write script
+      end
     else
       File.open(shell_path, 'w') do |file|
         CSV.open(csv, 'rb', col_sep: ' | ', headers: true).map do |line|

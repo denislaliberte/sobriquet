@@ -31,6 +31,6 @@ RSpec.describe CommandCollection do
     persistance = instance_double('Persistance', 'workspace/path')
     allow(persistance).to receive(:get).and_return([Command.new(command_data)])
     commands = described_class.new(persistance)
-    expect(commands.compile).to include('# get the status of the git directory')
+    expect(commands.compile).to include('# description : get the status of the git directory')
   end
 end
