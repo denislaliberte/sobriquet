@@ -8,15 +8,12 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
-- refactor generate to use persistance class
-- move add sobriquet to lib
-- rename Command::command to generate or other better name
-- find a better name for persistance
-- test bad csv file in persistance::get
 - generate variable in shell file
+- test bad csv file in persistance::get
 - generate reamde-rdoc from the reamde markdown
 - fix readme
 - add a variable
+- move add sobriquet to lib
 - release 1.0
 
 ### [v1.0]-unreleased
