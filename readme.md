@@ -9,11 +9,11 @@ Sobriquet manage your shell alias and variable.
 ## Roadmap
 
 - generate variable in shell file
+- add a variable
+- refactor to use abstraction for file operation
 - test bad csv file in persistance::get
 - generate reamde-rdoc from the reamde markdown
 - fix readme
-- add a variable
-- move add sobriquet to lib
 - release 1.0
 
 ### [v1.0]-unreleased
