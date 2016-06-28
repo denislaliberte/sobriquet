@@ -8,8 +8,8 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
-- generate variable in shell file
 - add a variable
+- persistance filter by type
 - refactor to use abstraction for file operation
 - test bad csv file in persistance::get
 - generate reamde-rdoc from the reamde markdown
