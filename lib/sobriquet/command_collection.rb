@@ -23,8 +23,13 @@ module Sobriquet
         '{{#commands}}
 # description : {{description}}
 alias {{alias}}="{{value}}"
-        {{/commands}}',
-        commands: @persistance.get
+        {{/commands}}
+{{#variables}}
+# description : {{description}}
+export {{alias}}="{{value}}"
+        {{/variables}}',
+        commands: @persistance.get,
+        variables: @persistance.get
       )
     end
   end

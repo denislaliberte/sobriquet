@@ -19,7 +19,7 @@ Feature: Add a variable to sobriquet data file
     "origin master" | om | "no description"
     """
 
-  Scenario: Add an alias with verbose flag
-    When I run `sobriquet --verbose add gs 'git status' `
+  Scenario: Add an variable with verbose flag
+    When I run `sobriquet --verbose variable om 'origin master' `
     Then the output should match /Sobriquet added to the file .*sobriquet.csv/
 
