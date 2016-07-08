@@ -7,17 +7,15 @@ RSpec.describe Persistance do
   end
   let(:csv) do
     'command | alias | description
-"git status" | gs | "get the status of the git directory"
+"git status" | gs | "get the status of the git directory" | command
+"origin master" | om | "no description" | variable
 '
   end
-  let(:compiled_command) do
-    '# get the status of the git directory
-alias gs="git status"
-'
-  end
+
   let(:data) do
     [
-      ['git status', 'gs', 'get the status of the git directory']
+      ['git status', 'gs', 'get the status of the git directory', 'command'],
+      ['origin master', 'om', 'no description', 'variable']
     ]
   end
 
@@ -28,19 +26,24 @@ alias gs="git status"
 
     it 'retrive the command csv from csv and contain value' do
       persistance = described_class.new('workspace.csv')
-      first_command = persistance.get.first
+      first_command = persistance.get('command').first
       expect(first_command.value).to eq('git status')
+    end
+
+    it 'return only the commands' do
+      persistance = described_class.new('workspace.csv')
+      expect(persistance.get('command').count).to eq(1)
     end
 
     it 'retrive the command csv from csv and contain alias' do
       persistance = described_class.new('workspace.csv')
-      first_command = persistance.get.first
+      first_command = persistance.get('command').first
       expect(first_command.alias).to eq('gs')
     end
 
     it 'retrive the command csv from csv and contain description' do
       persistance = described_class.new('workspace.csv')
-      first_command = persistance.get.first
+      first_command = persistance.get('command').first
       expect(first_command.description).to eq(
         'get the status of the git directory'
       )

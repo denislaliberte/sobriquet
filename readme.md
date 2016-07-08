@@ -8,20 +8,19 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
-- add a variable
+- fix help
+- fix readme
+- release 1.0
 - persistance filter by type
 - refactor to use abstraction for file operation
 - test bad csv file in persistance::get
 - generate reamde-rdoc from the reamde markdown
-- fix readme
-- release 1.0
 
 ### [v1.0]-unreleased
 #### added
 - Initialise csv file
 - Add an alias to the csv file
 - Generate a shell file with alias from the csv file
-#### planned
 - add a variable
 
 

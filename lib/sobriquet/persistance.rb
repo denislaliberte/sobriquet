@@ -7,9 +7,9 @@ module Sobriquet
       @workspace = workspace
     end
 
-    def get
+    def get(type)
       _title, *data = CSV.read(@workspace, 'rb', col_sep: ' | ')
-      data.map { |a| Command.new(a) }
+      data.select { |a| a[3] == type }.map { |a| Command.new(a) }
     end
 
     def save(commands, title)
