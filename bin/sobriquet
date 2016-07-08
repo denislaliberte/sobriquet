@@ -20,6 +20,7 @@ default_value ENV['HOME']
 arg_name 'workspace'
 flag [:w, :workspace]
 
+desc 'Initalise sobriquet files'
 command :init do |command|
   command.action do |global_options, _options, _args|
     workspace = global_options['workspace']
@@ -45,6 +46,7 @@ end
 
 arg :sobriquet
 arg :command
+desc 'Add an alias for a variable'
 command :variable do |command|
   command.desc 'Description of the variable'
   command.default_value 'no description'
@@ -55,6 +57,7 @@ end
 
 arg :sobriquet
 arg :value
+desc 'Add an alias for a command'
 command :add do |command|
   command.desc 'Description of the alias'
   command.default_value 'no descriptions'
@@ -63,6 +66,7 @@ command :add do |command|
   command.action(&add_a_sobriquet(:sobriquet))
 end
 
+desc 'Generate a shell file from sobriquet data'
 command :generate do |command|
   command.action do |global_options, _options, _args|
     csv = global_options['workspace'] + '/sobriquet.csv'

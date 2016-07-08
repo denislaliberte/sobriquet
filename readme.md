@@ -8,7 +8,6 @@ Sobriquet manage your shell alias and variable.
 
 ## Roadmap
 
-- fix help
 - fix readme
 - release 1.0
 
