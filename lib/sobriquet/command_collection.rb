@@ -28,8 +28,8 @@ alias {{alias}}="{{value}}"
 # description : {{description}}
 export {{alias}}="{{value}}"
         {{/variables}}',
-        commands: @persistance.get,
-        variables: @persistance.get
+        commands: @persistance.get('command'),
+        variables: @persistance.get('variable')
       )
     end
   end
