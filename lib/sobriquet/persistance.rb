@@ -9,7 +9,7 @@ module Sobriquet
 
     def get(type)
       _title, *data = CSV.read(@workspace, 'rb', col_sep: ' | ')
-      data.select { |a| a[3] == type }.map { |a| Command.new(a) }
+      data.map { |a| Command.new(a) }.select { |a| a.type == type }
     end
 
     def save(commands, title)

@@ -11,7 +11,6 @@ Sobriquet manage your shell alias and variable.
 - fix help
 - fix readme
 - release 1.0
-- persistance filter by type
 - refactor to use abstraction for file operation
 - test bad csv file in persistance::get
 - generate reamde-rdoc from the reamde markdown

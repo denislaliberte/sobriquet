@@ -3,10 +3,10 @@ include Sobriquet
 
 RSpec.describe Persistance do
   let(:title) do
-    %w(command alias description)
+    %w(command alias description type)
   end
   let(:csv) do
-    'command | alias | description
+    'command | alias | description | type
 "git status" | gs | "get the status of the git directory" | command
 "origin master" | om | "no description" | variable
 '
