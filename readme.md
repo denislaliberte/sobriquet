@@ -1,8 +1,6 @@
 # [ Sobriquet ]( https://github.com/denislaliberte/sobriquet )
 author : denis.laliberte@gmail.com
 
-Sobriquet manage your shell alias and variable.
-
 ## Description
 
 sobiquet is a command line tool that help you to save quickly new shell alias
